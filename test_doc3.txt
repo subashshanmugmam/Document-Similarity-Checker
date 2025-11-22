@@ -1,0 +1,4 @@
+﻿Weather forecasting uses complex mathematical models.
+Meteorologists analyze atmospheric data to predict conditions.
+Cloud formation depends on temperature and humidity levels.
+Modern weather satellites provide real-time data.

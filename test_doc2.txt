@@ -1,0 +1,4 @@
+﻿Data science combines statistics, machine learning, and domain knowledge.
+Algorithms process large datasets to find patterns and insights.
+AI systems can now recognize patterns better than humans.
+Training neural networks requires significant computational resources.

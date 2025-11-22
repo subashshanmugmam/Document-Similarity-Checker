@@ -1,0 +1,4 @@
+﻿This is a sample document about machine learning and artificial intelligence.
+Machine learning is a subset of AI that focuses on training algorithms.
+Neural networks are powerful tools for pattern recognition.
+Deep learning uses multiple layers of neural networks.
