@@ -144,6 +144,14 @@ const apiService = {
   },
 
   /**
+   * Get job results (alias for getResults for consistency)
+   * @param {string} jobId - Job ID
+   */
+  async getJobResults(jobId) {
+    return this.getResults(jobId);
+  },
+
+  /**
    * Get all jobs
    */
   async getJobs() {

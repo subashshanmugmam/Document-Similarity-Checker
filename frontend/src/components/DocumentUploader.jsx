@@ -95,31 +95,34 @@ const DocumentUploader = () => {
   
   return (
     <div className="card">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">Upload Documents</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Upload Documents</h2>
       
       {/* Drop zone */}
       <div
         {...getRootProps()}
         className={`
-          border-2 border-dashed rounded-lg p-8 text-center cursor-pointer
-          transition-all duration-200
+          border-3 border-dashed rounded-xl p-8 text-center cursor-pointer
+          transition-all duration-500 transform
           ${isDragActive 
-            ? 'border-blue-500 bg-blue-50' 
-            : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'
+            ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-purple-50 scale-105 shadow-2xl shadow-blue-500/30' 
+            : 'border-gray-300 hover:border-purple-400 hover:bg-gradient-to-br hover:from-gray-50 hover:to-purple-50/30 hover:scale-102 hover:shadow-xl'
           }
         `}
+        style={{
+          borderWidth: '3px'
+        }}
       >
         <input {...getInputProps()} />
         <Upload className="w-12 h-12 mx-auto mb-4 text-gray-400" />
         
         {isDragActive ? (
-          <p className="text-blue-600 font-medium">Drop files here...</p>
+          <p className="text-blue-200 font-medium">Drop files here...</p>
         ) : (
           <>
-            <p className="text-gray-600 font-medium mb-2">
+            <p className="text-white font-medium mb-2">
               Drag & drop files here, or click to select
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-300">
               Supports .txt and .pdf files (max 50MB each)
             </p>
           </>
@@ -129,22 +132,22 @@ const DocumentUploader = () => {
       {/* Selected files list */}
       {selectedFiles.length > 0 && (
         <div className="mt-4">
-          <h3 className="font-semibold text-gray-700 mb-2">
+          <h3 className="font-semibold text-white mb-2">
             Selected Files ({selectedFiles.length})
           </h3>
           <div className="space-y-2 max-h-48 overflow-y-auto">
             {selectedFiles.map((file, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                className="flex items-center justify-between p-3 bg-gradient-to-r from-gray-50 to-purple-50/30 rounded-lg border-2 border-transparent hover:border-purple-300 transition-all duration-500 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
               >
                 <div className="flex items-center space-x-3">
                   <FileText className="w-5 h-5 text-blue-500" />
                   <div>
-                    <p className="text-sm font-medium text-gray-800">
+                    <p className="text-sm font-medium text-white">
                       {file.name}
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-300">
                       {formatFileSize(file.size)}
                     </p>
                   </div>
@@ -167,8 +170,10 @@ const DocumentUploader = () => {
         <button
           onClick={handleUpload}
           disabled={selectedFiles.length === 0 || isUploading}
-          className="btn btn-primary flex-1"
+          className="btn btn-primary flex-1 relative overflow-hidden group"
         >
+          {/* Accent glow effect */}
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></span>
           {isUploading ? (
             <>
               <span className="inline-block animate-spin mr-2">⏳</span>
